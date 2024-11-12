@@ -6,18 +6,18 @@ This is the source code for the paper [`Distributional Properties of Subword Reg
 
 NOTE: We only include EN<->DE here, as we don't have an easy way to distribute the other datasets (though they are publically available). Adding a new dataset just requires swapping out the corpus data. All other code/steps remain the same.
 
-- clone directory
+- Clone directory
 - `pip install sentencepiece tokenizers sacrebleu sacremoses`
-- in `fairseq`
+- In `fairseq`
     - `pip install --editable ./`
-- in `fairseq/examples/random_sampler`
-    - this is an EN<->DE model
-    - `bash prepare_data.sh`
-    - EXAMPLE: `bash train_de_en.sh --experiment-name test --tokenizer-type bpe_uniform_python --src-dropout 0.1 --seed 0`
-    - output will be in `fairseq/<langpair>_experiments/` (see below for the directory name)
+- In `fairseq/examples/random_sampler`
+    - This is an EN<->DE model
+    - Prepare data: `bash prepare_data.sh`
+    - Run a training run: `bash train_de_en.sh --experiment-name test --tokenizer-type bpe_uniform_python --src-dropout 0.1 --seed 0`
+    - The output will be in `fairseq/<langpair>_experiments/` (see below for the directory name)
 
 
-- invocation options:
+- Invocation options:
     - `bash train_de_en.sh --experiment-name <EXPERIMENT_NAME> --tokenizer-type <TOKENIZER_TYPE> --src-bpe-tokens <STOKENS> --tgt-bpe-tokens <TTOKENS> --src-dropout <SDROPOUT> --target-dropout <TDROPOUT> --seed <SEED>`
     - `<EXPERIMENT_NAME>` is any string identifier
     - `<TOKENIZER_TYPE>` is one of `bpe,bpe-uniform-python,maxmatch,maxmatch-uniform,unigram`
@@ -25,7 +25,7 @@ NOTE: We only include EN<->DE here, as we don't have an easy way to distribute t
     - `<SDROPOUT>` and `<TDROPOUT>` are dropout parameters for the tokenizer they should be between 0.0 and 1.0 (default is 0.0, which means no dropout)
         - for unigram, the values are reversed from the original implementation of unigram (i.e., `0.0` equivalent to `alpha = 1.0`, and vice-versa)
     - `<SEED>` is the random seed for training
-    - the output folder name is `<EXPERIMENT_NAME>_VOCAB_<STOKENS>_<TTOKENS>_type_<TOKENIZER_TYPE>_dropout_<SDROPOUT>_<TDROPOUT>_seed_<SEED>.<LANG_PAIR>`
-        - found within `fairseq/experimental_outputs/`
+    - The output folder name is `<EXPERIMENT_NAME>_VOCAB_<STOKENS>_<TTOKENS>_type_<TOKENIZER_TYPE>_dropout_<SDROPOUT>_<TDROPOUT>_seed_<SEED>.<LANG_PAIR>` in the experiment outputs directory
+ 
 # Poster
 ![poster](https://github.com/user-attachments/assets/7bd73e72-fc9e-488b-8faa-f9e1bbcd3c3e)
