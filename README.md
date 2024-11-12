@@ -27,3 +27,5 @@ NOTE: We only include EN<->DE here, as we don't have an easy way to distribute t
     - `<SEED>` is the random seed for training
     - the output folder name is `<EXPERIMENT_NAME>_VOCAB_<STOKENS>_<TTOKENS>_type_<TOKENIZER_TYPE>_dropout_<SDROPOUT>_<TDROPOUT>_seed_<SEED>.<LANG_PAIR>`
         - found within `fairseq/experimental_outputs/`
+# Poster
+![poster](https://github.com/user-attachments/assets/7bd73e72-fc9e-488b-8faa-f9e1bbcd3c3e)
